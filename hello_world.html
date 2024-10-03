@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello World Clicker (React)</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        #output {
+            margin-top: 20px;
+            font-size: 1.5em;
+            color: #333;
+        }
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 1em;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Hello World Clicker (React)</h1>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        // Creating a React component for the Hello World clicker
+        class HelloWorldClicker extends React.Component {
+            constructor(props) {
+                super(props);
+                this.state = { message: '' };
+            }
+
+            printHelloWorld = () => {
+                this.setState({ message: 'Hello World' });
+            }
+
+            resetOutput = () => {
+                this.setState({ message: '' });
+            }
+
+            render() {
+                return (
+                    <div>
+                        <button onClick={this.printHelloWorld}>Click Me</button>
+                        <button onClick={this.resetOutput}>Reset</button>
+                        <div id="output">{this.state.message}</div>
+                    </div>
+                );
+            }
+        }
+
+        // Rendering the component into the root div
+        ReactDOM.render(<HelloWorldClicker />, document.getElementById('root'));
+    </script>
+
+</body>
+</html>
+ 
